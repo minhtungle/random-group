@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random HT22</title>
+    <link rel="stylesheet" href="random.css" />
+    <script rel="" type="text/javascript" src="random.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Random nhóm HT22</h1>
+      <div class="random">
+        <div class="random">
+          <div class="parent-btn">
+            <input type="text" />
+            <button id="add">Add</button>
+          </div>
+          <div class="parent-ol">
+            <ol id="group1">
+              Nhóm 1
+            </ol>
+            <ol id="group2">
+              Nhóm 2
+            </ol>
+            <ol id="group3">
+              Nhóm 3
+            </ol>
+            <ol id="group4">
+              Nhóm 4
+            </ol>
+            <ol id="group5">
+              Nhóm 5
+            </ol>
+            <ol id="group6">
+              Nhóm 6
+            </ol>
+            <ol id="group7">
+              Nhóm 7
+            </ol>
+            <ol id="group8">
+              Nhóm 8
+            </ol>
+          </div>
+
+          <script>
+            $(function () {
+              $("#add").on("click", function () {
+                // tạo biến val lưu giá trị thẻ input
+                let val = $("input").val();
+                // các biến num lưu số thẻ con của class group...
+                let num1 = $(".group1").children().length;
+                let num2 = $(".group2").children().length;
+                let num3 = $(".group3").children().length;
+                let num4 = $(".group4").children().length;
+                let num5 = $(".group5").children().length;
+                let num6 = $(".group6").children().length;
+                let num7 = $(".group7").children().length;
+                let num8 = $(".group8").children().length;
+                // điều kiện thẻ input nếu có giá trị value
+                if (val !== "") {
+                  // gọi hàm random số thứ tự
+                  var num = random(val, num1);
+                  // tạo biến elem đại diện cho thẻ li có text là giá tri trị val(input)
+                  var elem = $("<li></li>").text(val);
+                  // thêm button X vào sau thẻ elem
+                  $(elem).append("<button class='rem'>X</button>");
+                  // điều kiện xếp nhóm theo số thứ tự
+                  if (num == 7) {
+                    $("#group7").append(elem);
+                  } else if (num == 1) {
+                    $("#group1").append(elem);
+                  } else if (num == 2) {
+                    $("#group2").append(elem);
+                  } else if (num == 3) {
+                    $("#group3").append(elem);
+                  } else if (num == 4) {
+                    $("#group4").append(elem);
+                  } else if (num == 5) {
+                    $("#group5").append(elem);
+                  } else if (num == 6) {
+                    $("#group6").append(elem);
+                  } else if (num == 8) {
+                    $("#group8").append(elem);
+                  }
+                  $("input").val("");
+                  $(".rem").on("click", function () {
+                    $(this).parent().remove();
+                  });
+                }
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

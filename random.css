@@ -1,0 +1,26 @@
+h1 {
+  color: #1abc9c;
+  text-align: center;
+}
+.rem {
+  margin-left: 5px;
+  background-color: white;
+  color: red;
+  border: none;
+  cursor: pointer;
+}
+ol {
+  color: #1abc9c;
+}
+li {
+  color: black;
+}
+.parent-ol {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+.parent-btn {
+  text-align: center;
+}
