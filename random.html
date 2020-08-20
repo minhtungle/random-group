@@ -21,10 +21,10 @@
           </div>
           <div class="parent-ol">
             <ol class="text" id="group1">
-              1.Phóng
+              1.Phóng mặt loz
             </ol>
             <ol class="text" id="group2">
-              2.Khang
+              2.Khang bí thư
             </ol>
             <ol class="text" id="group3">
               3.Tiến Thành
@@ -39,13 +39,13 @@
               6.Mạnh Tú
             </ol>
             <ol class="text" id="group7">
-              7.Dương
+              7.Dương biển
             </ol>
             <ol class="text" id="group8">
               8.Anh Tú
             </ol>
             <ol class="text" id="group9">
-              9.Thanh Tùng
+              9.Tùng fake
             </ol>
             <ol class="text" id="group10">
               10. Đức Anh
@@ -103,60 +103,54 @@
                 if (val !== "") {
                   // gọi hàm random số thứ tự
                   var num = () => {
-                    if (
-                      array_gr_new.indexOf("group4") != -1 || // Nếu nhóm 4 hoặc nhóm 9 còn chỗ
-                      array_gr_new.indexOf("group9") != -1
-                    ) {
-                      // Nếu nhóm 4 còn chỗ
-                      if (array_gr_new.indexOf("group4") != -1) {
-                        if (
-                          val == "Hoàng Đức Minh" ||
-                          val == "Hồ Tiến Quân" ||
-                          val == "Vũ Thị Ngát" ||
-                          val == "Bùi Thị Hà"
-                        ) {
-                          return "group4";
-                        }
-                      }
-                      // Nếu nhóm 9 còn chỗ
-                      if (array_gr_new.indexOf("group9") != -1) {
-                        if (
-                          val == "Tạ Thanh Tâm" ||
-                          val == "Bùi Thị Yến" ||
-                          val == "Trịnh Quốc Hưng"
-                        ) {
-                          return "group9";
-                        }
-                      }
-                      // Nếu nhóm 6 còn chỗ
-                      if (array_gr_new.indexOf("group6") != -1) {
-                        if (val == "Bùi Thị Thảo") {
-                          return "group6";
-                        }
-                      }
-                      //Nhóm đặc biệt sẽ phải loại trừ
+                    // Nếu nhóm 4 còn chỗ
+                    if (group4 < 4) {
                       if (
-                        val == "Nguyễn Kim Huy" ||
-                        val == "Lã Việt Tùng" ||
-                        val == "Ngô Hoàng Thiện Đức" ||
-                        val == "Vũ Duy Khánh" ||
-                        val == "Nguyễn Minh Đức" ||
-                        val == "Nguyễn Thế Quang" ||
-                        val == "Lã Tiến Việt" ||
-                        val == "Ngô Xuân Hoàng" ||
-                        val == "Nguyễn Văn Đạt"
+                        val == "Hoàng Đức Minh" ||
+                        val == "Hồ Tiến Quân" ||
+                        val == "Vũ Thị Ngát" ||
+                        val == "Bùi Thị Hà"
                       ) {
-                        return array_gr_cabiet[
-                          Math.floor(
-                            Math.random() * (array_gr_cabiet.length - 1)
-                          )
-                        ];
+                        return "group4";
                       }
-                      // Nếu không thỏa mãn 2 điêu kiện trên
-                      return array_gr_new[
-                        Math.floor(Math.random() * (array_gr_new.length - 1))
+                    }
+
+                    // Nếu nhóm 9 còn chỗ
+                    if (group9 < 4) {
+                      if (
+                        val == "Tạ Thanh Tâm" ||
+                        val == "Bùi Thị Yến" ||
+                        val == "Trịnh Quốc Hưng" ||
+                        val == "Khuất Quang Sáng"
+                      ) {
+                        return "group9";
+                      }
+                    }
+
+                    // Nếu nhóm 6 còn chỗ
+                    if (array_gr_new.indexOf("group6") != -1) {
+                      if (val == "Bùi Thị Thảo") {
+                        return "group6";
+                      }
+                    }
+
+                    //Nhóm đặc biệt sẽ phải loại trừ, chạy random trong mảng cá biệt
+                    if (
+                      val == "Nguyễn Kim Huy" ||
+                      val == "Lã Việt Tùng" ||
+                      val == "Ngô Hoàng Thiện Đức" ||
+                      val == "Vũ Duy Khánh" ||
+                      val == "Nguyễn Minh Đức" ||
+                      val == "Nguyễn Thế Quang" ||
+                      val == "Lã Tiến Việt" ||
+                      val == "Ngô Xuân Hoàng" ||
+                      val == "Nguyễn Văn Đạt"
+                    ) {
+                      return array_gr_cabiet[
+                        Math.floor(Math.random() * (array_gr_cabiet.length - 1))
                       ];
                     }
+                    // Nếu không thỏa mãn 2 điêu kiện trên
                     return array_gr_new[
                       Math.floor(Math.random() * (array_gr_new.length - 1))
                     ];
