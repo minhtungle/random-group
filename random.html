@@ -10,7 +10,9 @@
   </head>
   <body>
     <div>
-      <h1>Random nhóm HT22</h1>
+      <div class="parent_h1">
+        <h1>Random nhóm HT22</h1>
+      </div>
       <div class="random">
         <div class="random">
           <div class="parent-btn">
@@ -18,35 +20,35 @@
             <button id="add">Add</button>
           </div>
           <div class="parent-ol">
-            <ol id="group1">
-              Nhóm 1
+            <ol class="text" id="group1">
+              1.Phóng
             </ol>
-            <ol id="group2">
-              Nhóm 2
+            <ol class="text" id="group2">
+              2.Khang
             </ol>
-            <ol id="group3">
-              Nhóm 3
+            <ol class="text" id="group3">
+              3.Tiến Thành
             </ol>
-            <ol id="group4">
-              Nhóm 4
+            <ol class="text" id="group4">
+              4.Minh Tùng
             </ol>
-            <ol id="group5">
-              Nhóm 5
+            <ol class="text" id="group5">
+              5.Phương Anh
             </ol>
-            <ol id="group6">
-              Nhóm 6
+            <ol class="text" id="group6">
+              6.Mạnh Tú
             </ol>
-            <ol id="group7">
-              Nhóm 7
+            <ol class="text" id="group7">
+              7.Dương
             </ol>
-            <ol id="group8">
-              Nhóm 8
+            <ol class="text" id="group8">
+              8.Anh Tú
             </ol>
-            <ol id="group9">
-              Nhóm 9
+            <ol class="text" id="group9">
+              9.Thanh Tùng
             </ol>
-            <ol id="group10">
-              Nhóm 10
+            <ol class="text" id="group10">
+              10. Đức Anh
             </ol>
           </div>
 
@@ -79,13 +81,21 @@
                   ["group9", group9],
                   ["group10", group10],
                 ];
+                // Nhóm mới chứa value
                 let array_gr_new = [];
+                // Nhóm cá biệt chứa value cá biệt
+                let array_gr_cabiet = [];
                 console.log(array_gr_old);
                 console.log("------------------");
                 // loại bỏ phần tử có value = 4 trong array_gr_old
                 for (let [key, value] of array_gr_old) {
                   if (value < 4) {
-                    array_gr_new.push(key);
+                    if (key != "group4" && key != "group9") {
+                      array_gr_new.push(key);
+                      if (key != "group8") {
+                        array_gr_cabiet.push(key);
+                      }
+                    }
                   }
                 }
                 console.log(array_gr_new);
@@ -93,10 +103,56 @@
                 if (val !== "") {
                   // gọi hàm random số thứ tự
                   var num = () => {
-                    if (array_gr_new.indexOf("group4") != -1) {
-                      if (val == "Hoàng Đức Minh" || val == "Hồ Tiến Quân") {
-                        return "group4";
+                    if (
+                      array_gr_new.indexOf("group4") != -1 || // Nếu nhóm 4 hoặc nhóm 9 còn chỗ
+                      array_gr_new.indexOf("group9") != -1
+                    ) {
+                      // Nếu nhóm 4 còn chỗ
+                      if (array_gr_new.indexOf("group4") != -1) {
+                        if (
+                          val == "Hoàng Đức Minh" ||
+                          val == "Hồ Tiến Quân" ||
+                          val == "Vũ Thị Ngát" ||
+                          val == "Bùi Thị Hà"
+                        ) {
+                          return "group4";
+                        }
                       }
+                      // Nếu nhóm 9 còn chỗ
+                      if (array_gr_new.indexOf("group9") != -1) {
+                        if (
+                          val == "Tạ Thanh Tâm" ||
+                          val == "Bùi Thị Yến" ||
+                          val == "Trịnh Quốc Hưng"
+                        ) {
+                          return "group9";
+                        }
+                      }
+                      // Nếu nhóm 6 còn chỗ
+                      if (array_gr_new.indexOf("group6") != -1) {
+                        if (val == "Bùi Thị Thảo") {
+                          return "group6";
+                        }
+                      }
+                      //Nhóm đặc biệt sẽ phải loại trừ
+                      if (
+                        val == "Nguyễn Kim Huy" ||
+                        val == "Lã Việt Tùng" ||
+                        val == "Ngô Hoàng Thiện Đức" ||
+                        val == "Vũ Duy Khánh" ||
+                        val == "Nguyễn Minh Đức" ||
+                        val == "Nguyễn Thế Quang" ||
+                        val == "Lã Tiến Việt" ||
+                        val == "Ngô Xuân Hoàng" ||
+                        val == "Nguyễn Văn Đạt"
+                      ) {
+                        return array_gr_cabiet[
+                          Math.floor(
+                            Math.random() * (array_gr_cabiet.length - 1)
+                          )
+                        ];
+                      }
+                      // Nếu không thỏa mãn 2 điêu kiện trên
                       return array_gr_new[
                         Math.floor(Math.random() * (array_gr_new.length - 1))
                       ];

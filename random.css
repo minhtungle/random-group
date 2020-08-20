@@ -1,3 +1,6 @@
+body {
+  background-color: white;
+}
 h1 {
   color: #1abc9c;
   text-align: center;
@@ -14,6 +17,8 @@ ol {
 }
 li {
   color: black;
+  font-weight: normal;
+  font-size: 16px;
 }
 .parent-ol {
   width: 100%;
@@ -23,4 +28,12 @@ li {
 }
 .parent-btn {
   text-align: center;
+}
+.text {
+  color: #1abc9c;
+  font-size: 18px;
+  font-weight: bold;
+}
+.parent_h1 {
+  background-color: #ffe4c4;
 }
