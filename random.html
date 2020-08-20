@@ -42,6 +42,12 @@
             <ol id="group8">
               Nhóm 8
             </ol>
+            <ol id="group9">
+              Nhóm 9
+            </ol>
+            <ol id="group10">
+              Nhóm 10
+            </ol>
           </div>
 
           <script>
@@ -50,39 +56,81 @@
                 // tạo biến val lưu giá trị thẻ input
                 let val = $("input").val();
                 // các biến num lưu số thẻ con của class group...
-                let num1 = $(".group1").children().length;
-                let num2 = $(".group2").children().length;
-                let num3 = $(".group3").children().length;
-                let num4 = $(".group4").children().length;
-                let num5 = $(".group5").children().length;
-                let num6 = $(".group6").children().length;
-                let num7 = $(".group7").children().length;
-                let num8 = $(".group8").children().length;
+                let group1 = $("#group1").children().length;
+                let group2 = $("#group2").children().length;
+                let group3 = $("#group3").children().length;
+                let group4 = $("#group4").children().length;
+                let group5 = $("#group5").children().length;
+                let group6 = $("#group6").children().length;
+                let group7 = $("#group7").children().length;
+                let group8 = $("#group8").children().length;
+                let group9 = $("#group9").children().length;
+                let group10 = $("#group10").children().length;
+                // tạo mảng chứa số phần tử từng nhóm
+                let array_gr_old = [
+                  ["group1", group1],
+                  ["group2", group2],
+                  ["group3", group3],
+                  ["group4", group4],
+                  ["group5", group5],
+                  ["group6", group6],
+                  ["group7", group7],
+                  ["group8", group8],
+                  ["group9", group9],
+                  ["group10", group10],
+                ];
+                let array_gr_new = [];
+                console.log(array_gr_old);
+                console.log("------------------");
+                // loại bỏ phần tử có value = 4 trong array_gr_old
+                for (let [key, value] of array_gr_old) {
+                  if (value < 4) {
+                    array_gr_new.push(key);
+                  }
+                }
+                console.log(array_gr_new);
                 // điều kiện thẻ input nếu có giá trị value
                 if (val !== "") {
                   // gọi hàm random số thứ tự
-                  var num = random(val, num1);
+                  var num = () => {
+                    if (array_gr_new.indexOf("group4") != -1) {
+                      if (val == "Hoàng Đức Minh" || val == "Hồ Tiến Quân") {
+                        return "group4";
+                      }
+                      return array_gr_new[
+                        Math.floor(Math.random() * (array_gr_new.length - 1))
+                      ];
+                    }
+                    return array_gr_new[
+                      Math.floor(Math.random() * (array_gr_new.length - 1))
+                    ];
+                  };
+                  var n = num();
                   // tạo biến elem đại diện cho thẻ li có text là giá tri trị val(input)
                   var elem = $("<li></li>").text(val);
                   // thêm button X vào sau thẻ elem
                   $(elem).append("<button class='rem'>X</button>");
                   // điều kiện xếp nhóm theo số thứ tự
-                  if (num == 7) {
-                    $("#group7").append(elem);
-                  } else if (num == 1) {
+                  if (n == "group1") {
                     $("#group1").append(elem);
-                  } else if (num == 2) {
+                  } else if (n == "group2") {
                     $("#group2").append(elem);
-                  } else if (num == 3) {
+                  } else if (n == "group3") {
                     $("#group3").append(elem);
-                  } else if (num == 4) {
+                  } else if (n == "group4") {
                     $("#group4").append(elem);
-                  } else if (num == 5) {
+                  } else if (n == "group5") {
                     $("#group5").append(elem);
-                  } else if (num == 6) {
+                  } else if (n == "group6") {
                     $("#group6").append(elem);
-                  } else if (num == 8) {
+                  } else if (n == "group7") {
+                    $("#group7").append(elem);
+                  } else if (n == "group8") {
                     $("#group8").append(elem);
+                  } else if (n == "group9") {
+                    $("#group9").append(elem);
+                  } else if (n == "group10") {
+                    $("#group10").append(elem);
                   }
                   $("input").val("");
                   $(".rem").on("click", function () {
