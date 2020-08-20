@@ -37,3 +37,13 @@ li {
 .parent_h1 {
   background-color: #ffe4c4;
 }
+.parent_audio {
+  display: block;
+  text-align: center;
+}
+input {
+  margin-top: 10px;
+  height: auto;
+  width: auto;
+}
+in
